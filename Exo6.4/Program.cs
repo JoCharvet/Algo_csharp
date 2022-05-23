@@ -9,7 +9,7 @@ List<int> ints= new List<int>();
 double ave_num=0;
 Regex myreg_num = new Regex(@"\d");
 Regex myreg_alp = new Regex(@"[a-z]");
-Regex myreg_vowel = new Regex(@"[aziouy]");
+Regex myreg_vowel = new Regex(@"[aeiouy]");
 
 // convert sentence to lower case
 sentence = sentence.ToLower();
