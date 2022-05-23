@@ -25,6 +25,6 @@ while(i!=n || i > n)
     i++;
     n--;
 }
-
+// display the final result
 Console.WriteLine(str_util + result);
 Console.ReadKey();
