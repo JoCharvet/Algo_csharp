@@ -2,7 +2,7 @@
 double nb_user = -800;
 double result_m = 0;
 string rep_user = "";
-string unite_user = "";
+string unit_user = "";
 string res_end = "";
 bool stop=false;
 
@@ -12,7 +12,7 @@ while (!stop)
 
 
     // input control of nb_user if beetween -459.67 and 5 000 000 and check if a unit of measure have been choosed1
-    while ((nb_user < -459.67 || nb_user > 5000000) && (unite_user!="c" || unite_user!="f"))
+    while ((nb_user < -459.67 || nb_user > 5000000) && (unit_user!="c" || unit_user!="f"))
     {
         Console.WriteLine("Veuillez saisir un nombre entre -459.67 et 5 000 000 (preciser si C ou F à la fin)");
         try
@@ -24,7 +24,7 @@ while (!stop)
                 rep_user = "0C";
             }
 
-            unite_user = rep_user[^1..].ToLower();
+            unit_user = rep_user[^1..].ToLower();
 
             nb_user = double.Parse(rep_user.Substring(0, rep_user.Length - 1));
         }
@@ -36,7 +36,7 @@ while (!stop)
     }
 
     // in function of the unit of measure convert C in F or F in C
-    if (unite_user == "c")
+    if (unit_user == "c")
     {
         result_m = Math.Round((nb_user * 9 / 5) + 32, 2);
         res_end = nb_user + " °C équivaut à " + result_m + " °F";

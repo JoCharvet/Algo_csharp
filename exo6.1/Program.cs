@@ -3,8 +3,8 @@ double prix = 0;
 string ingredient = "";
 string rep_user="";
 string[] tmp;
-var dict2;
-bool canConvert=false;
+
+bool canConvert = false;
 
 SortedDictionary<string, double> dict = new SortedDictionary<string, double>();
 
@@ -20,7 +20,7 @@ while (rep_user != "go")
     do
     {
         Console.WriteLine("Veuillez saisir un ingredient et son prix/kg séparé d'un espace ex: carottes 2,99");
-        rep_user = Console.ReadLine();
+        rep_user = Console.ReadLine().Replace(".",",");
         if (rep_user=="go")
         {
             canConvert=true;
@@ -41,8 +41,11 @@ while (rep_user != "go")
     } while (!canConvert);
  
 }
+
 // for retrieve the cheapest ingredient 
-dict2 = dict.OrderBy(key => key.Value);
+ var dict2 = dict.OrderBy(key => key.Value);
+//dict = (SortedDictionary<string, double>)(from entry in dict orderby entry.Value ascending select entry);
+
 
 // display the dictionnary
 foreach (var item in dict)
@@ -50,5 +53,5 @@ foreach (var item in dict)
     Console.WriteLine("1 kilogramme de " + item.Key + " coute " + item.Value + " euros.");
 }
 // display the cheapest ingredient
-Console.WriteLine("Légume le moins cher au kilo : "+ dict2.First().Key);
+Console.WriteLine("Légume le moins cher au kilo : "+ dict.First().Key);
 
